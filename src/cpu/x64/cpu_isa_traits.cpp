@@ -206,7 +206,8 @@ cpu_isa_t get_max_cpu_isa_mask(bool soft) {
 
 dnnl_cpu_isa_hints_t get_cpu_isa_hints(bool soft) {
     MAYBE_UNUSED(soft);
-    return cpu_isa_hints().get(soft);
+    // CPU ISA hints (ONEDNN_CPU_ISA_HINTS / prefer_ymm) are disabled.
+    return dnnl_cpu_isa_no_hints;
 }
 
 status_t set_max_cpu_isa(dnnl_cpu_isa_t isa) {
